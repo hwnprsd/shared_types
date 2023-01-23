@@ -1,9 +1,7 @@
-package nftmessaging
-
-import "github.com/hwnprsd/shared_types/pkgs/messaging_base"
+package sharedtypes
 
 type MintPoapMessage struct {
-	messaging_base.MessagingBase
+	MessagingBase
 	Email   string
 	Address string
 	Name    string
@@ -11,7 +9,7 @@ type MintPoapMessage struct {
 
 func NewMintPoapMessage(email string, walletAddress string, name string) *MintPoapMessage {
 	return &MintPoapMessage{
-		MessagingBase: messaging_base.MessagingBase{
+		MessagingBase: MessagingBase{
 			WorkType: "MINT_POAP",
 		},
 		Name:    name,
