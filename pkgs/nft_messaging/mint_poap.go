@@ -1,6 +1,6 @@
 package nftmessaging
 
-import "flaq.club/shared_types/pkgs/messaging_base"
+import "github.com/hwnprsd/shared_types/pkgs/messaging_base"
 
 type MintPoapMessage struct {
 	messaging_base.MessagingBase
