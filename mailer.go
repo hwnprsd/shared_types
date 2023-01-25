@@ -7,10 +7,10 @@ type SendMailMessage struct {
 	EmailAddress   string
 	Subject        string
 	BodyTemplateID uint
-	TemplateValues []string
+	TemplateValues []any
 }
 
-func NewSendMailMessage(email string, subject string, templateId uint, values []string) *SendMailMessage {
+func NewSendMailMessage(email string, subject string, templateId uint, values []any) *SendMailMessage {
 	return &SendMailMessage{
 		MessagingBase: MessagingBase{
 			WorkType: WORK_TYPE_SEND_MAIL,
