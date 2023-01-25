@@ -1,5 +1,7 @@
 package shared_types
 
+const WORK_TYPE_MINT_POAP = "MINT_POAP"
+
 type MintPoapMessage struct {
 	MessagingBase
 	Email    string
@@ -11,7 +13,7 @@ type MintPoapMessage struct {
 func NewMintPoapMessage(email string, walletAddress string, name string, tokenUri string) *MintPoapMessage {
 	return &MintPoapMessage{
 		MessagingBase: MessagingBase{
-			WorkType: "MINT_POAP",
+			WorkType: WORK_TYPE_MINT_POAP,
 		},
 		Name:     name,
 		Email:    email,
@@ -19,6 +21,8 @@ func NewMintPoapMessage(email string, walletAddress string, name string, tokenUr
 		TokenURI: tokenUri,
 	}
 }
+
+const WORK_TYPE_MINT_QUIZ_NFT = "MINT_QUIZ_NFT"
 
 type MintQuizNFTMessage struct {
 	MessagingBase
@@ -30,7 +34,7 @@ type MintQuizNFTMessage struct {
 func NewMintQuizNFTMessage(email string, walletAddress string, tokenUri string) *MintQuizNFTMessage {
 	return &MintQuizNFTMessage{
 		MessagingBase: MessagingBase{
-			WorkType: "MINT_QUIZ_NFT",
+			WorkType: WORK_TYPE_MINT_QUIZ_NFT,
 		},
 		Email:    email,
 		Address:  walletAddress,
