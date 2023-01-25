@@ -19,3 +19,21 @@ func NewMintPoapMessage(email string, walletAddress string, name string, tokenUr
 		TokenURI: tokenUri,
 	}
 }
+
+type MintQuizNFTMessage struct {
+	MessagingBase
+	Address  string
+	TokenURI string
+	Email    string
+}
+
+func NewMintQuizNFTMessage(email string, walletAddress string, tokenUri string) *MintQuizNFTMessage {
+	return &MintQuizNFTMessage{
+		MessagingBase: MessagingBase{
+			WorkType: "MINT_QUIZ_NFT",
+		},
+		Email:    email,
+		Address:  walletAddress,
+		TokenURI: tokenUri,
+	}
+}
