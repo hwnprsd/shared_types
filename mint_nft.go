@@ -4,10 +4,11 @@ const WORK_TYPE_MINT_POAP = "MINT_POAP"
 
 type MintPoapMessage struct {
 	MessagingBase
-	Email    string
-	Address  string
-	Name     string
-	TokenURI string
+	Email           string
+	Address         string
+	Name            string
+	TokenURI        string
+	EmailTemplateId string
 }
 
 func NewMintPoapMessage(email string, walletAddress string, name string, tokenUri string) *MintPoapMessage {
