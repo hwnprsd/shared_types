@@ -8,16 +8,20 @@ const (
 
 type CreateGifMessage struct {
 	MessagingBase
-	EventID  uint
-	UserName string
+	EventID           uint
+	UserName          string
+	UserEmail         string
+	UserWalletAddress string
 }
 
-func NewCreateGifMessage(eventId uint, userName string) *CreateGifMessage {
+func NewCreateGifMessage(eventId uint, userName, userWalletAddress, userEmail string) *CreateGifMessage {
 	return &CreateGifMessage{
 		MessagingBase: MessagingBase{
 			WorkType: WORK_TYPE_CREATE_GIF,
 		},
-		EventID:  eventId,
-		UserName: userName,
+		EventID:           eventId,
+		UserName:          userName,
+		UserEmail:         userEmail,
+		UserWalletAddress: userWalletAddress,
 	}
 }
