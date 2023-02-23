@@ -33,16 +33,17 @@ type AddUserListMessage struct {
 	MessagingBase
 	EmailAddress string
 	Name         string
+	ListName     string
 }
 
 type RemoveUserListMessage struct {
 	MessagingBase
 	EmailAddress string
 	Name         string
+	ListName     string
 }
 
 type CreateCampaignMessage struct {
 	MessagingBase
-	EmailAddress string
-	Name         string
+	ListName string
 }
