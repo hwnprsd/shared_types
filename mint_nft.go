@@ -8,18 +8,19 @@ type MintPoapMessage struct {
 	Address         string
 	Name            string
 	TokenURI        string
-	EmailTemplateId string
+	EmailTemplateId uint
 }
 
-func NewMintPoapMessage(email string, walletAddress string, name string, tokenUri string) *MintPoapMessage {
+func NewMintPoapMessage(email, walletAddress, name, tokenUri string, emailTemplateId uint) *MintPoapMessage {
 	return &MintPoapMessage{
 		MessagingBase: MessagingBase{
 			WorkType: WORK_TYPE_MINT_POAP,
 		},
-		Name:     name,
-		Email:    email,
-		Address:  walletAddress,
-		TokenURI: tokenUri,
+		Name:            name,
+		Email:           email,
+		Address:         walletAddress,
+		TokenURI:        tokenUri,
+		EmailTemplateId: emailTemplateId,
 	}
 }
 
