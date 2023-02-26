@@ -17,11 +17,9 @@ type SendMailMessage struct {
 	TemplateValues map[string]string
 }
 
-func NewSendMailMessage(email string, subject string, templateId uint, values map[string]string) *SendMailMessage {
+func NewSendMailMessage(taskId uint, email string, subject string, templateId uint, values map[string]string) *SendMailMessage {
 	return &SendMailMessage{
-		MessagingBase: MessagingBase{
-			WorkType: WORK_TYPE_SEND_MAIL,
-		},
+		MessagingBase:  *NewMessagingBase(taskId, WORK_TYPE_SEND_MAIL),
 		EmailAddress:   email,
 		Subject:        subject,
 		BodyTemplateID: templateId,

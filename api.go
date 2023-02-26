@@ -13,11 +13,9 @@ type ApiCallback struct {
 
 func NewApiCallbackMessage(taskId uint, status string, data any) *ApiCallback {
 	return &ApiCallback{
-		MessagingBase: MessagingBase{
-			WorkType: WORK_TYPE_API_CALLBACK,
-		},
-		TaskID: taskId,
-		Status: status,
-		Data:   data,
+		MessagingBase: *NewMessagingBase(taskId, WORK_TYPE_API_CALLBACK),
+		TaskID:        taskId,
+		Status:        status,
+		Data:          data,
 	}
 }
