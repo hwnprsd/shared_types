@@ -4,8 +4,6 @@ const (
 	WORK_TYPE_CREATE_GIF = "CREATE_GIF"
 )
 
-// 	// Inputs
-
 type CreateGifMessage struct {
 	MessagingBase
 	EventID           uint
