@@ -45,13 +45,28 @@ func NewUpdateRssData(taskId uint) *UpdateRssData {
 
 type CreateRssNewsletter struct {
 	MessagingBase
-	Flag string
+	Tag  string
 	Date time.Time
 }
 
-func NewCreateRssNewsletter(taskId uint, flag string, date time.Time) *CreateRssNewsletter {
+func NewCreateRssNewsletter(taskId uint, tag string, newsletterPublishedDate time.Time) *CreateRssNewsletter {
 	return &CreateRssNewsletter{
 		*NewMessagingBase(taskId, WORK_TYPE_CREATE_RSS_NEWSLETTER),
-		flag, date,
+		tag, newsletterPublishedDate,
+	}
+}
+
+type SendRssNewsletter struct {
+	MessagingBase
+	Tag           string
+	Date          time.Time
+	CampaignId    uint
+	ScheduledTime time.Time
+}
+
+func NewSendRssNewsletter(taskId, campaignId uint, tag string, newsletterPublishedDate, scheduledTime time.Time) *SendRssNewsletter {
+	return &SendRssNewsletter{
+		*NewMessagingBase(taskId, WORK_TYPE_CREATE_RSS_NEWSLETTER),
+		tag, newsletterPublishedDate, campaignId, scheduledTime,
 	}
 }
