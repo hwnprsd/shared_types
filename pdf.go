@@ -17,7 +17,7 @@ func NewPdfParseMessage(taskId uint, url string) *PdfParseCVMessage {
 
 type PdfParseCVBytesMessage struct {
 	MessagingBase
-	b []byte
+	B []byte
 }
 
 func NewPdfParseBytesMessage(taskId uint, b []byte) *PdfParseCVBytesMessage {
