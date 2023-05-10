@@ -58,17 +58,21 @@ const WORK_TYPE_RELAY_TX = "RELAY_TX"
 
 type RelayTxMessage struct {
 	MessagingBase
-	ContractAddress, UserAddress, Data, Signature string
-	Nonce                                         int64
+	ContractAddress   string
+	UserAddress       string
+	FunctionSignature string
+	SigR, SigS        string
+	SigV              uint8
 }
 
-func CreateRelayTxMessage(taskId uint, userAddress, contractAddress, data, signature string, nonce int64) *RelayTxMessage {
+func CreateRelayTxMessage(taskId uint, userAddress, contractAddress, functionSignature, sigR, sigS string, sigV uint8) *RelayTxMessage {
 	return &RelayTxMessage{
-		MessagingBase:   *NewMessagingBase(taskId, WORK_TYPE_RELAY_TX),
-		ContractAddress: contractAddress,
-		UserAddress:     userAddress,
-		Data:            data,
-		Signature:       signature,
-		Nonce:           nonce,
+		MessagingBase:     *NewMessagingBase(taskId, WORK_TYPE_RELAY_TX),
+		ContractAddress:   contractAddress,
+		UserAddress:       userAddress,
+		FunctionSignature: functionSignature,
+		SigR:              sigR,
+		SigS:              sigS,
+		SigV:              sigV,
 	}
 }
