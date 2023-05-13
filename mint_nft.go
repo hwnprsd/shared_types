@@ -54,25 +54,22 @@ func CreateSmartContractWalletMessage(taskId uint, ownerAddress string) *CreateS
 	}
 }
 
-const WORK_TYPE_RELAY_TX = "RELAY_TX"
+const WORK_TYPE_RELAY_META_TX = "RELAY_META_TX"
 
-type RelayTxMessage struct {
+type RelayMetaTxMessage struct {
 	MessagingBase
-	ContractAddress   string
-	UserAddress       string
-	FunctionSignature string
-	SigR, SigS        string
-	SigV              uint8
+	Data      string
+	From      string
+	Gas       string
+	Nonce     uint
+	To        string
+	Value     string
+	Signature string
 }
 
-func CreateRelayTxMessage(taskId uint, userAddress, contractAddress, functionSignature, sigR, sigS string, sigV uint8) *RelayTxMessage {
-	return &RelayTxMessage{
-		MessagingBase:     *NewMessagingBase(taskId, WORK_TYPE_RELAY_TX),
-		ContractAddress:   contractAddress,
-		UserAddress:       userAddress,
-		FunctionSignature: functionSignature,
-		SigR:              sigR,
-		SigS:              sigS,
-		SigV:              sigV,
+func CreateRelayMetaTxMessage(taskId uint, Data, From, Gas, To, Value, Signature string, Nonce uint) *RelayMetaTxMessage {
+	return &RelayMetaTxMessage{
+		*NewMessagingBase(taskId, WORK_TYPE_RELAY_META_TX),
+		Data, From, Gas, Nonce, To, Value, Signature,
 	}
 }
